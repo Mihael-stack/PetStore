@@ -83,7 +83,7 @@ public class PetsAndUsersServiceProduction implements PetsAndUsersService {
         List<Pets> pets = this.petsDao.findAllPetsWithoutOwners();
 
         for(Users user : users){
-            double isBudgetSame = user.getBudget().doubleValue(); // variable for later to see if the user has not found a pet.
+            BigDecimal isBudgetSame = user.getBudget(); // variable for later to see if the user has not found a pet.
             for(Pets pet : pets){
                 if(user.getBudget().compareTo(pet.getPrice()) >= 0 && pet.getOwner() == null){ // checking if user has enough funds.
                     pet.setOwner(user); // appointing  owner to pet.
@@ -93,7 +93,7 @@ public class PetsAndUsersServiceProduction implements PetsAndUsersService {
                     break; // Assumption: A user is going to buy one pet per Buy operation
                 }
             }
-            if(isBudgetSame == user.getBudget().doubleValue()) fail++; //checking if user has not found a pet.
+            if(isBudgetSame.compareTo(user.getBudget()) == 0) fail++; //checking if user has not found a pet.
         }
 
         this.historyDao.saveHistory(new History(dateOfBuying,success,fail));
