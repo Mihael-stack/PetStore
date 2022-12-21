@@ -1,10 +1,9 @@
-package com.mihael.petstore.dao;
+package com.mihael.petstore.services;
 
 import com.mihael.petstore.entity.History;
 
 import java.util.List;
 
-public interface HistoryDao {
-    void saveHistory(History history);
+public interface HistoryService {
     List<History> findAllHistoryLogs();
 }
