@@ -23,5 +23,9 @@ public class Cat extends Pets{
         return new BigDecimal(years);
     }
 
+    @Override
+    public String toString() {
+        return "Meow, cat " + super.getName() + " ";
+    }
 
 }

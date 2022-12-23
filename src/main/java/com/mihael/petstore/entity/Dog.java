@@ -32,6 +32,11 @@ public class Dog extends Pets{
         return yearsBigDecimal.add(ratingBigDecimal);
     }
 
+    @Override
+    public String toString() {
+        return "Woof, dog " + super.getName() + " ";
+    }
+
     public int getRating() {
         return rating;
     }

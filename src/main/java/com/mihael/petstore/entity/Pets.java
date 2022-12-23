@@ -72,4 +72,6 @@ public abstract class Pets {
     public void setOwner(Users user) {
         this.owner = user;
     }
+    @Override
+    public abstract String toString();
 }

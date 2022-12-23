@@ -89,7 +89,7 @@ public class PetsAndUsersServiceProduction implements PetsAndUsersService {
                     pet.setOwner(user); // appointing  owner to pet.
                     user.subtractBudget(pet.getPrice()); // subtracting funds from user.
                     success++; // adding to successful transaction
-                    System.out.println((((pet.getType() == TypeEnum.CAT)) ? "Meow, cat " : "Woof, dog ") + pet.getName() + " has owner " + pet.getOwner().getFirstName() + " " + pet.getOwner().getLastName());
+                    System.out.println( pet + " has owner " + pet.getOwner().getFirstName() + " " + pet.getOwner().getLastName());
                     break; // Assumption: A user is going to buy one pet per Buy operation
                 }
             }
